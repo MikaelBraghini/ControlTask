@@ -12,6 +12,8 @@ public class TarefaDAO {
     String password = "24042003";
     ArrayList<TarefaModel> tarefas;
 
+    private boolean check;
+
     public void addTarefaSQL(TarefaModel tarefaModel) {
         try (Connection c = DriverManager.getConnection(jdbcUrl, username, password)) {
 
@@ -30,6 +32,7 @@ public class TarefaDAO {
 
             psLog.setInt(1, retornId());
             psLog.executeUpdate();
+            this.check = true;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,6 +49,7 @@ public class TarefaDAO {
             while (rs.next()) {
                 return rs.getInt("id");
             }
+            this.check = true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -74,7 +78,7 @@ public class TarefaDAO {
             PreparedStatement psLog = c.prepareStatement(queryLog);
 
             psLog.executeUpdate();
-
+            this.check = true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -96,6 +100,7 @@ public class TarefaDAO {
 
             psLog.setInt(1, index);
             psLog.executeUpdate();
+            this.check = true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -118,7 +123,7 @@ public class TarefaDAO {
 
             psLog.setInt(1, tarefa.getId());
             psLog.executeUpdate();
-
+            this.check = true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -137,6 +142,19 @@ public class TarefaDAO {
             psLog.executeUpdate();
 
             ps.executeUpdate();
+            this.check = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clearDataBase() {
+        try (Connection c = DriverManager.getConnection(jdbcUrl, username, password)) {
+            String query = "DELETE FROM tarefa;";
+            PreparedStatement ps = c.prepareStatement(query);
+
+            ps.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -156,8 +174,7 @@ public class TarefaDAO {
             while (rs.next()) {
                 id = rs.getInt("id");
             }
-
-
+            this.check = true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -165,5 +182,13 @@ public class TarefaDAO {
             return true;
         }
         return false;
+    }
+
+    public boolean verificaAcao() {
+        return check;
+    }
+
+    public void setCheck(boolean check) {
+        this.check = check;
     }
 }

@@ -20,7 +20,7 @@ public class TarefaView {
         System.out.println("3 - Remover Tarefas");
         System.out.println("4 - Atualizar Tarefas");
         System.out.println("5 - Finalizar Tarefas");
-        System.out.println("-1 - Adicionar tarefa");
+        System.out.println("0 - Finalizar Sistema");
         System.out.print("Escolha uma opção: ");
     }
 
@@ -44,17 +44,10 @@ public class TarefaView {
         System.out.print("Digite o satus da tarefa (A)Aberto (P)Pendente (C)Concluido: ");
     }
 
-    public void tarefaAdicionada() {
-        System.out.println("\n---------- Tarefa Adicionado ------------\n");
-    }
-
     public void digiteStatusCorreto() {
         System.out.println("Digite o status corretamente!");
     }
 
-    public void tabelaVazia() {
-        System.out.println("\n---------- Nenhum dado encontrado ----------\n");
-    }
 
     public void digiteId() {
         System.out.print("Digite o id da tarefa para remover: ");
@@ -64,15 +57,21 @@ public class TarefaView {
         System.out.print("Digite O id da tarefa que voce quer marcar como concluida: ");
     }
 
-    public void tarefaRemovida() {
-        System.out.println("\n---------- Tarefa removida com sucesso ----------\n");
-    }
+
 
     public void tarefaNaoEncontrada() {
         System.out.println("\n---------- Tarefa Não Encontrada ----------\n");
     }
 
-    public void tarefaFinalizada() {
-        System.out.println("\n---------- Tarefa Marcada Como Concluida ----------\n");
+    public void acaoRealizada() {
+        System.out.println("\n---------- Ação Realizada Com Sucesso ----------\n");
     }
+
+    public void listaVazia() {
+        System.out.println("\n---------- Nenhum Dado Foi Encontrado ----------\n");
+    }
+
+
+
+
 }
