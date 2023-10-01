@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class TarefaDAO {
     String jdbcUrl = "jdbc:mysql://localhost:3306/projeto_revisao";
     String username = "root";
-    String password = "aluno";
+    String password = "24042003";
     ArrayList<TarefaModel> tarefas;
 
     public void addTarefaSQL(TarefaModel tarefaModel) {
