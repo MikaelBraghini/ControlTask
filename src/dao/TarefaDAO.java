@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 
 public class TarefaDAO {
-    String jdbcUrl = "jdbc:mysql://localhost:3306/projeto_revisao";
-    String username = "root";
-    String password = "24042003";
+    String jdbcUrl = "jdbcUrl";
+    String username = "username";
+    String password = "password";
     ArrayList<TarefaModel> tarefas;
 
     private boolean check;
